@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: biomed_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: biomed_user
+      POSTGRES_PASSWORD: biomed_pass
+      POSTGRES_DB: biomed_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

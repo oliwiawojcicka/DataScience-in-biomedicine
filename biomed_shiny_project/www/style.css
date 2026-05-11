@@ -1,0 +1,130 @@
+.content-wrapper,
+.right-side {
+  background-color: #f7f9fc;
+}
+
+/* Header */
+.main-header .logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* General boxes */
+.box {
+  border-radius: 10px;
+  border-top: 3px solid #2C7FB8;
+}
+
+/* Login panel */
+.login-box-custom {
+  padding: 15px;
+}
+
+.login-box-custom input {
+  height: 42px;
+  font-size: 16px;
+}
+
+.login-button {
+  width: 160px;
+  height: 42px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.login-help {
+  background-color: #eef5fb;
+  border-left: 4px solid #2C7FB8;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.login-help p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Inputs in filter panels */
+.form-control {
+  color: #111111 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #9ab6d4 !important;
+  border-radius: 4px !important;
+  height: 38px !important;
+  font-size: 14px !important;
+}
+
+.form-control:focus {
+  border-color: #2C7FB8 !important;
+  box-shadow: 0 0 4px rgba(44, 127, 184, 0.5) !important;
+}
+
+/* DataTables: global search field */
+.dataTables_filter input {
+  color: #111111 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #9ab6d4 !important;
+  border-radius: 4px !important;
+  padding: 6px 8px !important;
+  font-size: 14px !important;
+  height: 34px !important;
+}
+
+/* DataTables: page length selector */
+.dataTables_length select {
+  color: #111111 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #9ab6d4 !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  font-size: 14px !important;
+  height: 34px !important;
+}
+
+/* DataTables: header style */
+table.dataTable thead th {
+  background-color: #eef5fb !important;
+  color: #111111 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  font-weight: 600 !important;
+}
+
+/* DataTables: body cells */
+table.dataTable tbody td {
+  color: #111111 !important;
+  background-color: #ffffff;
+}
+
+/* DataTables: selected row */
+table.dataTable tbody tr.selected,
+table.dataTable tbody tr.selected td {
+  background-color: #cfe8f7 !important;
+  color: #111111 !important;
+}
+
+/* Horizontal scroll */
+.dataTables_wrapper {
+  overflow-x: auto;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #2C7FB8 !important;
+  border-color: #2C7FB8 !important;
+}
+
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #C0392B !important;
+  border-color: #C0392B !important;
+}
+
+/* Modal titles */
+.modal-title {
+  font-weight: 600;
+}

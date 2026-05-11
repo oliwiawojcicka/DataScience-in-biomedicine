@@ -1,0 +1,110 @@
+---
+title: "Biomedical Database Quality Report"
+output:
+  html_document:
+    self_contained: true
+    toc: true
+    toc_depth: 2
+params:
+  data_path: NULL
+  functions_path: NULL
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(knitr)
+
+source(params$functions_path)
+
+df <- readRDS(params$data_path)
+quality <- quality_flags(df)
+completeness <- completeness_metrics(df)
+```
+
+# Database summary
+
+Report generated: `r Sys.time()`
+
+Number of patient records: `r nrow(df)`
+
+Number of problematic records: `r sum(quality$has_problem, na.rm = TRUE)`
+
+# Completeness assessment
+
+Completeness was assessed by calculating the number and percentage of missing values for each variable in the database.
+
+```{r completeness-table, echo=FALSE}
+knitr::kable(
+  completeness,
+  caption = "Completeness metrics by variable"
+)
+```
+
+# Missing values plot
+
+```{r missing-values-plot, echo=FALSE}
+ggplot(completeness, aes(x = reorder(variable, missing_percent), y = missing_percent)) +
+  geom_col(fill = "#2C7FB8") +
+  coord_flip() +
+  labs(
+    x = "Variable",
+    y = "Missing values [%]",
+    title = "Percentage of missing values by variable"
+  ) +
+  theme_minimal()
+```
+
+# Data quality checks
+
+The application evaluates three main dimensions of data quality.
+
+**Completeness** measures the amount of missing information in patient records.
+
+**Consistency** checks whether variables are logically coherent, for example whether age is compatible with date of birth and whether categorical variables contain valid values.
+
+**Accuracy** detects clinically implausible values, such as unrealistic age, height, weight, or dosage.
+
+# Problematic records
+
+The table below presents examples of records that failed at least one quality control rule.
+
+```{r problematic-records, echo=FALSE}
+problematic <- quality %>%
+  filter(has_problem == TRUE) %>%
+  select(
+    patient_id,
+    age,
+    date_of_birth,
+    sex,
+    weight,
+    height,
+    blood_type,
+    diagnosis_code,
+    dosage_mg,
+    invalid_patient_id,
+    invalid_age,
+    invalid_dob,
+    invalid_sex,
+    invalid_weight,
+    invalid_height,
+    invalid_blood_type,
+    missing_diagnosis,
+    invalid_dosage,
+    age_dob_mismatch
+  ) %>%
+  head(30)
+
+knitr::kable(
+  problematic,
+  caption = "First problematic records detected by the quality control module"
+)
+```
+
+# Traceability
+
+The application stores audit logs for important database operations, including imports, inserts, updates, and deletions. Each log entry contains the patient identifier, action type, username, timestamp, and information about the changed values.
+
+# Summary
+
+This report provides an automated overview of the current state of the biomedical database. It supports quality monitoring by identifying missing values, inconsistent records, and clinically implausible outliers.
