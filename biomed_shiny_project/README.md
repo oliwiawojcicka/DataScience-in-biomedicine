@@ -1,33 +1,28 @@
 # Biomedical Shiny Application
 
-This project implements a reactive biomedical data management application using R Shiny and PostgreSQL.
+This project is a biomedical data management application built with R Shiny and PostgreSQL.
 
-## Main features
+## Features
 
-- Persistent data storage with PostgreSQL
-- CSV data migration
-- Modular R Shiny architecture
-- Patient record management
+- CSV data import into PostgreSQL
+- Modular Shiny application
+- Patient record browsing, filtering, editing and deleting
+- Data quality dashboard
+- Completeness, consistency and accuracy checks
 - Defensive validation for new patient records
-- Data quality monitoring
-- Completeness, consistency, and accuracy checks
-- Audit logs and traceability
+- Audit logs for traceability
 - HTML report generation using RMarkdown
 
 ## Technologies
 
-- R
-- Shiny
-- shinydashboard
+- R Shiny
 - PostgreSQL
-- Docker
 - RMarkdown
-- ggplot2
-- DT
+- Docker
 
 ## How to run
 
-Start PostgreSQL:
+1. Start PostgreSQL using Docker Compose:
 
 ```bash
 docker compose up -d
