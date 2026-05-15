@@ -1,6 +1,6 @@
 # Data Science Applied to Biomedicine
 
-This repository contains projects completed as part of the **Data Science Applied to Biomedicine** course, which I am taking during my Erasmus+ exchange semester in Spain.
+This repository contains projects completed as part of the Data Science Applied to Biomedicine course, which I am taking during my **Erasmus+ exchange semester in Spain**.
 
 The course focuses on applying data science methods to biomedical and clinical data, including data preprocessing, visualization, quality control, database integration, and building interactive applications for biomedical data management.
 
